@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StatFlow</title>
+    <link rel="icon" href="ICON.png" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="LOGO.png" alt="StatFlow" />
+      </a>
+      <div class="lr">
+        <a href="about.html">ABOUT</a>
+        <a href="team.html">TEAM</a>
+      </div>
+      <div class="lf">
+        <button>TRY NOW</button>
+        <a>EN</a>
+      </div>
+    </header>
+    <main>
+      <div class="nav" id="nav">
+        <div class="opt">
+          <a href="h.html">Histogram</a>
+        </div>
+        <div class="opt">
+          <a href="box.html">BoxPlot</a>
+        </div>
+        <div class="opt">
+          <a href="bar.html" style="text-decoration: underline">BarChart</a>
+        </div>
+        <div class="opt">
+          <a href="sc.html">ScatterPlot</a>
+        </div>
+      </div>
+      <div class="container">
+        <img src="bar.png" alt="Box Plot" />
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

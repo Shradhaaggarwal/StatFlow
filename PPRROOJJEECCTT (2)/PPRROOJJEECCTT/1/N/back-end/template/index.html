@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StatFlow</title>
+  <link rel="icon" href="ICON.png" />
+  <!-- <link rel="stylesheet" href="styles.css" /> -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="Your Image">
+    </a>
+    <div class="lr">
+      <a href="about.html">ABOUT</a>
+      <a href="team.html">TEAM</a>
+    </div>
+    <div class="lf">
+      <button>TRY NOW</button>
+      <a>EN</a>
+    </div>
+  </header>
+  <main>
+    <h2>Welcome to StatFlow - Your Gateway to Data Analysis!</h2>
+    <p>
+      At StatFlow, we believe in making data analysis accessible to everyone.
+      Whether you're a business professional, researcher, student, or just a
+      curious mind, StatFlow empowers you to unlock insights from your data
+      effortlessly.
+    </p>
+    <br />
+    <br />
+    <div class="container">
+      <h1>- Upload Your Dataset Here -</h1>
+      <h1>Upload a File</h1>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput">
+        <input type="button" value="Upload File" onclick="uploadFile()">
+      </form>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script>
+    function uploadFile() {
+      let fileInput = document.getElementById('fileInput');
+      let file = fileInput.files[0];
+      let formData = new FormData();
+
+      formData.append('file', file);
+
+      fetch('/upload', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(result => {
+          console.log(result);
+          alert('File uploaded successfully!');
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('There was an error uploading the file.');
+        });
+    }
+  </script>
+</body>
+
+
+
+<script>
+  function uploadFile() {
+    let fileInput = document.getElementById('fileInput');
+    let file = fileInput.files[0];
+    let formData = new FormData();
+
+    formData.append('file', file);
+
+    fetch('/upload', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(result => {
+        console.log(result);
+        alert('File uploaded successfully!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error uploading the file.');
+      });
+  }
+</script>
+
+</html>
